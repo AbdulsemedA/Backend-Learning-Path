@@ -60,16 +60,11 @@ namespace TaskManager
 
         public void SaveTasks(Task_Manager taskManager)
         {
-            if (File.Exists(FilePath))
-            {
-                File.Delete(FilePath);
-            }
-
             if (taskManager.tasks.Count == 0)
             {
                 return;
             }
-            
+
             using (StreamWriter writer = new StreamWriter(FilePath))
             {
                 foreach (Task_Class task in taskManager.tasks)
