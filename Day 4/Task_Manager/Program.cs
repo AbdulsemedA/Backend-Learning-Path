@@ -3,12 +3,17 @@ namespace TaskManager
 {
     class Program
     {
+        // Main method
         static async Task Main()
         {
+            // Create a new task manager
             Task_Manager taskManager = new Task_Manager();
+            // Create a new file operations object
             File_Operations fileOperations = new File_Operations();
+            // Load tasks from file
             await fileOperations.LoadTasksAsync(taskManager);
 
+            // Display menu
             while (true)
             {
                 Console.WriteLine("Select an option:");
@@ -30,6 +35,7 @@ namespace TaskManager
                         taskManager.ViewTasks();
                         break;
 
+                    // View tasks by category
                     case "3":
                         Console.WriteLine("Select task category (0: Personal, 1: Work, 2: Errands, 3: Others): ");
                         if (Enum.TryParse(Console.ReadLine(), out TaskCategory selectedCategory))

@@ -2,9 +2,12 @@ namespace TaskManager
 {
     class Task_Manager
     {
+        // List of tasks
         public List<Task_Class> tasks = new List<Task_Class>();
+        // File path
         private const string FilePath = "tasks.csv";
 
+        // Add a new task
         public void AddTask() {
 
             string? name, description;
@@ -20,8 +23,11 @@ namespace TaskManager
             } while (string.IsNullOrWhiteSpace(description));
 
             Console.WriteLine("Select task category (0: Personal, 1: Work, 2: Errands, 3: Others): ");
+            
+            // Parse the user input to TaskCategory enum
             if (Enum.TryParse(Console.ReadLine(), out TaskCategory category))
             {
+                // Create a new task object
                 Task_Class newTask = new Task_Class
                 {
                     Name = name,
@@ -30,6 +36,7 @@ namespace TaskManager
                     IsCompleted = false
                 };
 
+                // Add the task to the list
                 tasks.Add(newTask);
                 File_Operations file = new File_Operations();
                 file.SaveTasks(this);
@@ -39,6 +46,7 @@ namespace TaskManager
 
         }
 
+        // View all tasks in the list
         public void ViewTasks()
         {
             Console.WriteLine("Tasks:");
@@ -50,6 +58,7 @@ namespace TaskManager
             }
         }
 
+        // View tasks by category in the list
         public void ViewTasksByCategory(TaskCategory category)
         {
             Console.WriteLine($"Tasks in {category} category:");
@@ -63,6 +72,7 @@ namespace TaskManager
             }
         }
 
+        // Print table header for tasks
         private void PrintTableHeader()
         {
             string separator = new string('-', 90);
@@ -71,6 +81,7 @@ namespace TaskManager
             Console.WriteLine(separator);
         }
 
+        // Print task details in a table format
         private void PrintTaskDetails(Task_Class task)
         {
     
@@ -80,11 +91,13 @@ namespace TaskManager
             Console.WriteLine(separator);
         }
 
+        // Get task by name from the list
         public Task_Class? GetTaskByName(string name)
         {
             return tasks.FirstOrDefault(task => task.Name == name);
         }
 
+        // Update task details
         public void UpdateTask()
         {
             ViewTasks();
@@ -105,6 +118,7 @@ namespace TaskManager
             Console.Write("Enter the attribute to update (0: Name, 1: Description, 2: Completion Status): ");
             int range;
             string? attributeNum;
+            
             do
             {
                 attributeNum = Console.ReadLine();
@@ -131,6 +145,7 @@ namespace TaskManager
                 }
             } while (string.IsNullOrEmpty(newValue));
 
+            // Get the task to update
             Task_Class taskToUpdate = GetTaskByName(taskName)!;
 
             switch (attributeNum)
