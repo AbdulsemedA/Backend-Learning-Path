@@ -1,0 +1,15 @@
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.csproj.AssemblyReference.cache
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.AssemblyInfoInputs.cache
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.AssemblyInfo.cs
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.csproj.CoreCompileInputs.cache
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\bin\Debug\net7.0\TaskManager.exe
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\bin\Debug\net7.0\TaskManager.deps.json
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\bin\Debug\net7.0\TaskManager.runtimeconfig.json
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\bin\Debug\net7.0\TaskManager.dll
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\bin\Debug\net7.0\TaskManager.pdb
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.dll
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\refint\TaskManager.dll
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.pdb
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\TaskManager.genruntimeconfig.cache
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\ref\TaskManager.dll

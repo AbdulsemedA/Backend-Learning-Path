@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abuye\\Desktop\\A2SV\\Backend-Learning-Path\\Day 4\\Task_Manager\\Task_Manager.csproj",
-      "projectName": "Task_Manager",
-      "projectPath": "C:\\Users\\Abuye\\Desktop\\A2SV\\Backend-Learning-Path\\Day 4\\Task_Manager\\Task_Manager.csproj",
+      "projectUniqueName": "C:\\Users\\Abuye\\Desktop\\A2SV\\Backend-Learning-Path\\Day 4\\Task_Manager\\TaskManager.csproj",
+      "projectName": "TaskManager",
+      "projectPath": "C:\\Users\\Abuye\\Desktop\\A2SV\\Backend-Learning-Path\\Day 4\\Task_Manager\\TaskManager.csproj",
       "packagesPath": "C:\\Users\\Abuye\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Abuye\\Desktop\\A2SV\\Backend-Learning-Path\\Day 4\\Task_Manager\\obj\\",
       "projectStyle": "PackageReference",

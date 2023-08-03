@@ -1,0 +1,5 @@
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\Task_Manager.csproj.AssemblyReference.cache
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\Task_Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\Task_Manager.AssemblyInfoInputs.cache
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\Task_Manager.AssemblyInfo.cs
+C:\Users\Abuye\Desktop\A2SV\Backend-Learning-Path\Day 4\Task_Manager\obj\Debug\net7.0\Task_Manager.csproj.CoreCompileInputs.cache
