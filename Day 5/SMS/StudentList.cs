@@ -47,6 +47,72 @@ namespace SMS
         }
 
 
+        // Update student
+        public void UpdateStudent(int rollNumber, T updatedStudent)
+        {
+            var existingStudent = students.FirstOrDefault(s =>
+            {
+                if (s is Student student && student.RollNumber == rollNumber)
+                    return true;
+                return false;
+            });
+
+            if (existingStudent != null)
+            {
+                students[students.IndexOf(existingStudent)] = updatedStudent;
+                Console.WriteLine("Student information updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Student not found.");
+            }
+        }
+
+        // Delete student
+        public void DeleteStudent(int rollNumber)
+        {
+            var existingStudent = students.FirstOrDefault(s =>
+            {
+                if (s is Student student && student.RollNumber == rollNumber)
+                    return true;
+                return false;
+            });
+
+            if (existingStudent != null)
+            {
+                students.Remove(existingStudent);
+                Console.WriteLine("Student deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Student not found.");
+            }
+        }
+
+
+        // Sort students by name or age
+        public void SortStudents(string sortBy)
+        {
+            switch (sortBy.ToLower())
+            {
+                case "name":
+                    students = students.OrderBy(s => (s as Student)?.Name, StringComparer.OrdinalIgnoreCase).ToList();
+                    Console.WriteLine("Students sorted by name.");
+                    break;
+
+                case "age":
+                    students = students.OrderBy(s => (s as Student)?.Age).ToList();
+                    Console.WriteLine("Students sorted by age.");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid sort criteria.");
+                    break;
+            }
+        }
+
+
+
         // Display student
         public void Display(T student)
         {

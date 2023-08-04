@@ -18,9 +18,13 @@ using SMS;
             Console.WriteLine("3. Search Student by ID");
             Console.WriteLine("4. Display All Students");
             Console.WriteLine("5. Save Data to JSON");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Update Student");
+            Console.WriteLine("7. Delete Student");
+            Console.WriteLine("8. Sort Students by Name");
+            Console.WriteLine("9. Sort Students by Age");
+            Console.WriteLine("10. Exit");
 
-            Console.Write("\nEnter your choice (1-6): ");
+            Console.Write("\nEnter your choice (1-10): ");
             string? choice = Console.ReadLine()!;
 
             switch (choice)
@@ -70,8 +74,47 @@ using SMS;
                     studentList.SaveToJson(fileName);
                     Console.WriteLine($"Student data saved to '{fileName}'.");
                     break;
-
+                
                 case "6":
+                    // Update student
+                    Console.Write("Enter the ID (Roll Number) of the student to update: ");
+                    int updateId = int.Parse(Console.ReadLine()!);
+                    var foundStudent = studentList.SearchByID(updateId);
+                    if (foundStudent != null)
+                    {
+                        // Get updated details from the user
+                        Console.Write("Enter Name: ");
+                        string Newname = Console.ReadLine()!;
+                        Console.Write("Enter Age: ");
+                        int Newage = int.Parse(Console.ReadLine()!);
+                        Console.Write("Enter Grade: ");
+                        string Newgrade = Console.ReadLine()!;
+
+                        var updatedStudent = new Student(Newname, Newage, updateId, Newgrade);
+                        studentList.UpdateStudent(updateId, updatedStudent);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Student not found.");
+                    }
+                    break;
+                
+                case "7":
+                    // Delete student
+                    Console.Write("Enter the ID (Roll Number) of the student to delete: ");
+                    int deleteId = int.Parse(Console.ReadLine()!);
+                    studentList.DeleteStudent(deleteId);
+                    break;
+                
+                case "8":
+                    studentList.SortStudents("name");
+                    break;
+
+                case "9":
+                    studentList.SortStudents("age");
+                    break;
+
+                case "10":
                     // Save data to JSON before exiting
                     studentList.SaveToJson(fileName);
                     Console.WriteLine("Exiting the program.");
