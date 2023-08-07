@@ -116,12 +116,12 @@ namespace SMS
         // Display student
         public void Display(T student)
         {
-            if (student != null)
+            if (student != null && student is Student validStudent)
             {
                 Console.WriteLine("\n----------------------------------------------------");
                 Console.WriteLine($"{"Name", -20} {"Age", -5} {"Roll Number", -15} {"Grade", -10}");
                 Console.WriteLine("----------------------------------------------------");
-                Console.WriteLine($"{((Student)(object)student).Name, -20} {((Student)(object)student).Age, -5} {((Student)(object)student).RollNumber, -15} {((Student)(object)student).Grade, -10}");
+                Console.WriteLine($"{validStudent.Name, -20} {validStudent.Age, -5} {validStudent.RollNumber, -15} {validStudent.Grade, -10}");
                 Console.WriteLine("----------------------------------------------------\n");
             }
             else
