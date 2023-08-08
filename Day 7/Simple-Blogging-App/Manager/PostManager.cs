@@ -23,7 +23,7 @@ namespace Simple_Blogging_App.Manager
         public List<Post> GetAllPosts()
         {
             using var dbContext = new BlogDbContext();
-            return dbContext.Posts.Include(p => p.Comments).ToList();
+            return dbContext.Posts.Include(p => p.Comments).OrderByDescending(p => p.CreatedAt).ToList();
         }
 
         public Post GetPostById(int postId)

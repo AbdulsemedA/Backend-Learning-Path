@@ -18,7 +18,7 @@ namespace Simple_Blogging_App.Manager
         public List<Comment> GetAllComments(int postId)
         {
             using var dbContext = new BlogDbContext();
-            return dbContext.Comments.Where(c => c.PostId == postId).ToList();
+            return dbContext.Comments.Where(c => c.PostId == postId).OrderByDescending(c => c.CreatedAt).ToList();
         }
 
         public Comment? GetCommentByPost(int postId, int commentId)
