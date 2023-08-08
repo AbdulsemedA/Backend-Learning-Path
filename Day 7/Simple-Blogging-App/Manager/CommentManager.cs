@@ -27,6 +27,12 @@ namespace Simple_Blogging_App.Manager
             return dbContext.Comments.SingleOrDefault(c => c.PostId == postId && c.CommentId == commentId);
         }
 
+        public Comment? GetCommentById(int commentId)
+        {
+            using var dbContext = new BlogDbContext();
+            return dbContext.Comments.SingleOrDefault(c => c.CommentId == commentId);
+        }
+
         public void UpdateComment(Comment comment)
         {
             if (string.IsNullOrWhiteSpace(comment.Text))
