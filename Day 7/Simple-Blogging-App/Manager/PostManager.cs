@@ -10,19 +10,10 @@ namespace Simple_Blogging_App.Manager
         public void CreatePost(Post post)
         {
             if (string.IsNullOrWhiteSpace(post.Title))
-            {
-                // throw new ArgumentException("Post title cannot be empty or whitespace.");
                 return;
-            }
-
             if (string.IsNullOrWhiteSpace(post.Content))
-            {
-                // throw new ArgumentException("Post content cannot be empty or whitespace.");
                 return;
-            }
-
             
-
             using var dbContext = new BlogDbContext();
             post.CreatedAt = DateTime.UtcNow;
             dbContext.Posts.Add(post);

@@ -15,10 +15,16 @@ namespace Simple_Blogging_App.Manager
             dbContext.SaveChanges();
         }
 
-        public Comment GetCommentById(int commentId)
+        public List<Comment> GetAllComments(int postId)
         {
             using var dbContext = new BlogDbContext();
-            return dbContext.Comments.SingleOrDefault(c => c.CommentId == commentId);
+            return dbContext.Comments.Where(c => c.PostId == postId).ToList();
+        }
+
+        public Comment? GetCommentByPost(int postId, int commentId)
+        {
+            using var dbContext = new BlogDbContext();
+            return dbContext.Comments.SingleOrDefault(c => c.PostId == postId && c.CommentId == commentId);
         }
 
         public void UpdateComment(Comment comment)
