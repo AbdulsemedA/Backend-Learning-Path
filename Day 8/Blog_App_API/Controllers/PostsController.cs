@@ -22,28 +22,29 @@ public class PostsController : ControllerBase
 
     // GET: api/posts
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
+    public async Task<IActionResult> GetPosts()
     {
-        return await dbContext.Posts.ToListAsync();
+        var posts = await dbContext.Posts.ToListAsync();
+        return Ok(posts);
     }
 
     // GET: api/posts/id
     [HttpGet("{id}")]
-    public async Task<ActionResult<Post>> GetPost(int id)
+    public async Task<IActionResult> GetPost(int id)
     {
-        var post = await dbContext.Posts.FindAsync(id);
+        var post = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
 
         if (!PostExists(id))
             return NotFound();
 
-        return post!;
+        return Ok(post);
     }
 
     // POST: api/posts
     [HttpPost]
-    public async Task<ActionResult<Post>> CreatePost(Post post)
+    public async Task<IActionResult> CreatePost(Post post)
     {
-        dbContext.Posts.Add(post);
+        await dbContext.Posts.AddAsync(post);
         await dbContext.SaveChangesAsync();
 
         return CreatedAtAction("GetPost", new { id = post.PostId }, post);
@@ -53,10 +54,17 @@ public class PostsController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdatePost(int id, Post post)
     {
-        if (id != post.PostId)
+        var postToUpdate = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
+        
+        if (postToUpdate == null)
             return BadRequest();
 
-        dbContext.Entry(post).State = EntityState.Modified;
+        if (!PostExists(id))
+            return NotFound();
+
+        postToUpdate.Title = post.Title;
+        postToUpdate.Content = post.Content;
+        postToUpdate.CreatedAt = DateTime.UtcNow;
 
         try
         {
@@ -77,11 +85,11 @@ public class PostsController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePost(int id)
     {
-        var post = await dbContext.Posts.FindAsync(id);
-        if (!PostExists(id))
+        var post = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
+        if (!PostExists(id) || post == null)
             return NotFound();
 
-        dbContext.Posts.Remove(post!);
+        dbContext.Posts.Remove(post);
         await dbContext.SaveChangesAsync();
 
         return NoContent();
@@ -89,6 +97,6 @@ public class PostsController : ControllerBase
 
     private bool PostExists(int id)
     {
-        return dbContext.Posts.Any(e => e.PostId == id);
+        return dbContext.Posts.Any(p => p.PostId == id);
     }
 }

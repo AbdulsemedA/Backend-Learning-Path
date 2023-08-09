@@ -22,31 +22,38 @@ public class CommentsController : ControllerBase
 
     // GET: api/comments
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
+    public async Task<IActionResult> GetComments()
     {
-        return await dbContext.Comments.ToListAsync();
+        var comments = await dbContext.Comments.ToListAsync();
+        return Ok(comments);
     }
 
     // GET: api/comments/id
     [HttpGet("{id}")]
-    public async Task<ActionResult<Comment>> GetComment(int id)
+    public async Task<IActionResult> GetComment(int id)
     {
-        var comment = await dbContext.Comments.FindAsync(id);
+        var comment = await dbContext.Comments.FirstOrDefaultAsync(c => c.CommentId == id);
 
         if (!CommentExists(id))
             return NotFound();
 
-        return comment!;
+        return Ok(comment);
     }
 
     // POST: api/comments
-    [HttpPost]
-    public async Task<ActionResult<Comment>> CreateComment(Comment comment)
+    [HttpPost("{id}")]
+    public async Task<IActionResult> CreateComment(int id, Comment comment)
     {
-        dbContext.Comments.Add(comment);
+        var post = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
+
+        if (post == null)
+            return StatusCode(404, "Post not found");
+        
+        comment.PostId = id;
+        await dbContext.Comments.AddAsync(comment);
         await dbContext.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetComment), new { id = comment.CommentId }, comment);
+        return CreatedAtAction("GetComment", new { id = comment.CommentId }, comment);
     }
 
     // PUT: api/comments/id
@@ -81,10 +88,10 @@ public class CommentsController : ControllerBase
     public async Task<IActionResult> DeleteComment(int id)
     {
         var comment = await dbContext.Comments.FindAsync(id);
-        if (!CommentExists(id))
-            return NotFound();
+        if (!CommentExists(id) || comment == null) // Check for null
+        return NotFound();
 
-        dbContext.Comments.Remove(comment!);
+        dbContext.Comments.Remove(comment);
         await dbContext.SaveChangesAsync();
 
         return NoContent();
