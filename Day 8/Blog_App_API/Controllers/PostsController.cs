@@ -24,7 +24,7 @@ public class PostsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetPosts()
     {
-        var posts = await dbContext.Posts.ToListAsync();
+        var posts = await dbContext.Posts.Include(p => p.Comments).ToListAsync();
         return Ok(posts);
     }
 
@@ -32,7 +32,7 @@ public class PostsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetPost(int id)
     {
-        var post = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
+        var post = await dbContext.Posts.Include(p => p.Comments).FirstOrDefaultAsync(p => p.PostId == id);
 
         if (!PostExists(id))
             return NotFound();
