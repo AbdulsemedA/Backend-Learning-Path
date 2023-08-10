@@ -57,7 +57,7 @@ public class PostsController : ControllerBase
         var postToUpdate = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
         
         if (postToUpdate == null)
-            return BadRequest();
+            return NotFound();
 
         if (!PostExists(id))
             return NotFound();
@@ -92,7 +92,7 @@ public class PostsController : ControllerBase
         dbContext.Posts.Remove(post);
         await dbContext.SaveChangesAsync();
 
-        return NoContent();
+        return Ok(post);
     }
 
     private bool PostExists(int id)

@@ -15,12 +15,14 @@ namespace Blog_App_API.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+            if (!optionsBuilder.IsConfigured) 
+            {
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json");
+                var configuration = builder.Build();
+                optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+            }
         }
     }
 }

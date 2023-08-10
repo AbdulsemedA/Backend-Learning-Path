@@ -47,7 +47,7 @@ public class CommentsController : ControllerBase
         var post = await dbContext.Posts.FirstOrDefaultAsync(p => p.PostId == id);
 
         if (post == null)
-            return StatusCode(404, "Post not found");
+            return NotFound();
         
         comment.PostId = id;
         await dbContext.Comments.AddAsync(comment);
@@ -63,7 +63,7 @@ public class CommentsController : ControllerBase
         var commentToUpdate = await dbContext.Comments.FindAsync(id);
 
         if (commentToUpdate == null)
-            return BadRequest();
+            return NotFound();
         
         commentToUpdate.Text = comment;
         dbContext.Entry(commentToUpdate).State = EntityState.Modified;
@@ -88,13 +88,13 @@ public class CommentsController : ControllerBase
     public async Task<IActionResult> DeleteComment(int id)
     {
         var comment = await dbContext.Comments.FindAsync(id);
-        if (!CommentExists(id) || comment == null) // Check for null
-        return NotFound();
+        if (!CommentExists(id) || comment == null)
+            return NotFound();
 
         dbContext.Comments.Remove(comment);
         await dbContext.SaveChangesAsync();
 
-        return NoContent();
+        return Ok(comment);
     }
 
     private bool CommentExists(int id)
