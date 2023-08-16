@@ -5,7 +5,7 @@ namespace Application.DTOs.Posts
 {
     public class PostListDto : BaseEntityDto
     {
-        public string? Title { get; set; }
-        public string? Content { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
     }
 }

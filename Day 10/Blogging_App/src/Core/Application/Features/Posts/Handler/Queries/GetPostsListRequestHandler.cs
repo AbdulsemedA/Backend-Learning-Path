@@ -21,7 +21,7 @@ namespace Application.Features.Posts.Handler.Queries
             _postRepository = postRepository;
             _mapper = mapper;
         }
-        public async Task<List<PostDto>> Handle(GetPostsListRequest request, CancellationToken cancellationToken)
+        public async Task<List<PostListDto>> Handle(GetPostsListRequest request, CancellationToken cancellationToken)
         {
             var posts = await _postRepository.GetAll();
             return _mapper.Map<List<PostListDto>>(posts);

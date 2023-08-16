@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace Application.Features.Comments.Handler.Queries
 {
-    public class GetCommentByPostIdRequestHandler : IRequestHandler<GetCommentByPostIdRequest, CommentDto>
+    public class GetCommentByPostIdRequestHandler : IRequestHandler<GetCommentByPostIdRequest, List<CommentDto>>
     {
         private readonly ICommentRepository _commentRepository;
         private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ namespace Application.Features.Comments.Handler.Queries
             _commentRepository = commentRepository;
             _mapper = mapper;
         }
-        public async Task<CommentDto> Handle(GetCommentByPostIdRequest request, CancellationToken cancellationToken)
+        public async Task<List<CommentDto>> Handle(GetCommentByPostIdRequest request, CancellationToken cancellationToken)
         {
             var comments = await _commentRepository.GetCommentsByPostId(request.Id);
             return _mapper.Map<List<CommentDto>>(comments);

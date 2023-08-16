@@ -4,6 +4,6 @@ using Application.DTOs.Posts;
 
 namespace Application.Features.Posts.Requests
 {
-    public class GetPostsListRequest : IRequest<List<PostDto>>
+    public class GetPostsListRequest : IRequest<List<PostListDto>>
     {}
 }
