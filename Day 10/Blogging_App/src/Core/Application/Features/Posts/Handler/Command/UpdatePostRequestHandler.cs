@@ -24,9 +24,9 @@ namespace Application.Features.Posts.Handler.Commands
         }
         public async Task<Unit> Handle(UpdatePostRequest request, CancellationToken cancellationToken)
         {
-            var post = _postRepository.GetById(request.UpdatePostDto.Id);
+            var post = await _postRepository.GetById(request.UpdatePostDto.Id);
             _mapper.Map(request.UpdatePostDto, post);
-            await _postRepository.Update(post);
+            await _postRepository.Update(post.Id, post);
             return Unit.Value;
         }
 

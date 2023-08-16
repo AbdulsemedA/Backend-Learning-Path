@@ -4,8 +4,8 @@ using Application.DTOs.Comments;
 
 namespace Application.Features.Comments.Requests.Commands
 {
-    public class CreateCommentRequest : IRequest<int>
+    public class UpdateCommentRequest : IRequest<Unit>
     {
-        public CreateCommentDto CreateCommentDto { get; set; }
+        public UpdateCommentDto UpdateCommentDto { get; set; }
     }
 }

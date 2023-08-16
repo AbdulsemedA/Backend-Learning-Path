@@ -4,7 +4,7 @@ using Application.DTOs.Comments;
 
 namespace Application.DTOs.Posts
 {
-    public class CreatePostDto : BaseEntityDto
+    public class CreatePostDto
     {
         public string Title { get; set; }
         public string Content { get; set; }
