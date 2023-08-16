@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Posts.Handler.Queries
 {
-    public class GetPostListRequestHandler : IRequestHandler<GetPostsListRequest, List<PostDto>>
+    public class GetPostsListRequestHandler : IRequestHandler<GetPostsListRequest, List<PostListDto>>
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
-        public GetPostListRequestHandler(IPostRepository postRepository, IMapper mapper)
+        public GetPostsListRequestHandler(IPostRepository postRepository, IMapper mapper)
         {
             _postRepository = postRepository;
             _mapper = mapper;
@@ -24,7 +24,7 @@ namespace Application.Features.Posts.Handler.Queries
         public async Task<List<PostDto>> Handle(GetPostsListRequest request, CancellationToken cancellationToken)
         {
             var posts = await _postRepository.GetAll();
-            return _mapper.Map<List<PostDto>>(posts);
+            return _mapper.Map<List<PostListDto>>(posts);
         }
 
     }
