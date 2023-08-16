@@ -13,20 +13,21 @@ using Application.Features.Posts.Requests.Commands;
 
 namespace Application.Features.Posts.Handler.Commands
 {
-    public class CreatePostRequestHandler : IRequestHandler<CreatePostRequest, int>
+    public class UpdatePostRequestHandler : IRequestHandler<UpdatePostRequest, Unit>
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
-        public CreatePostRequestHandler(IPostRepository postRepository, IMapper mapper)
+        public UpdatePostRequestHandler(IPostRepository postRepository, IMapper mapper)
         {
             _postRepository = postRepository;
             _mapper = mapper;
         }
-        public async Task<int> Handle(CreatePostRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdatePostRequest request, CancellationToken cancellationToken)
         {
-            var post = _mapper.Map<Post>(request);
-            await _postRepository.Add(post);
-            return post.Id;
+            var post = _postRepository.GetById(request.UpdatePostDto.Id);
+            _mapper.Map(request.UpdatePostDto, post);
+            await _postRepository.Update(post);
+            return Unit.Value;
         }
 
     }
