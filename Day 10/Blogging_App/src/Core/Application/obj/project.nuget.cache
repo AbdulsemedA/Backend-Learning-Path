@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "Y9W67CD2awHvtEvtY8viP0n4F+cJK9rq+hVleFKjb6KVZ3+yZvYVOgEdZv3QtCUa3tRFuTVgiirT0thoh5FGTA==",
+  "dgSpecHash": "HiRM+27m962vMOaHS6YbqYRdBMKHScxfF5/1y3jBnxkecnENiChIWLC8lMiA5ROLPqyq6AovmG8uDq6CU0y+Ow==",
   "success": true,
   "projectFilePath": "C:\\Users\\Abuye\\Desktop\\A2SV\\Backend-Learning-Path\\Day 10\\Blogging_App\\src\\Core\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Abuye\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Abuye\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
