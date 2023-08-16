@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.DTOs.Posts;
-using Application.Features.Posts.Requests;
+using Application.Features.Posts.Requests.Queries;
 using Application.Persistence.Contracts;
 using AutoMapper;
 using Domain;

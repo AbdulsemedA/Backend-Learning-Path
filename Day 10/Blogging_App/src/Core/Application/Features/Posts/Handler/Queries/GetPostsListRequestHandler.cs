@@ -1,6 +1,6 @@
 using System;
 using Application.DTOs.Posts;
-using Application.Features.Posts.Requests;
+using Application.Features.Posts.Requests.Queries;
 using Application.Persistence.Contracts;
 using MediatR;
 using AutoMapper;

@@ -1,12 +1,12 @@
 using System;
 using MediatR;
-using Application.DTOs;
+using Application.DTOs.Comments;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
 using Application.Persistence.Contracts;
 using AutoMapper;
-using Application.Features.Comments.Requests;
+using Application.Features.Comments.Requests.Queries;
 
 
 namespace Application.Features.Comments.Handler.Queries

@@ -1,7 +1,7 @@
 using System;
 using Application.DTOs.Common;
 
-namespace Application.DTOs
+namespace Application.DTOs.Comments
 {
     public class CommentDto : BaseEntityDto
     {

@@ -1,7 +1,7 @@
 using System;
 using MediatR;
-using Application.DTOs;
-using Application.Features.Comments.Requests;
+using Application.DTOs.Comments;
+using Application.Features.Comments.Requests.Queries;
 using Application.Persistence.Contracts;
 using AutoMapper;
 using System.Threading.Tasks;

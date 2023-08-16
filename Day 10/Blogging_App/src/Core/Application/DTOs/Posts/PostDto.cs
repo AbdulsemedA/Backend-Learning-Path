@@ -1,5 +1,6 @@
 using System;
 using Application.DTOs.Common;
+using Application.DTOs.Comments;
 
 
 namespace Application.DTOs.Posts
